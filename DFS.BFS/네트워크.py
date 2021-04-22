@@ -15,7 +15,11 @@ computers = [[1, 1, 0], [1, 1, 1], [0, 1, 1]]
 # 111
 # 011    
 
-
+def delNetwork(computers, que, x,y):
+    que.append(y)
+    computers[x][y] = 0
+    computers[y][x] = 0
+    return que
 
 def solution(n, computers):
     answer = 0
@@ -25,20 +29,16 @@ def solution(n, computers):
         notIsolation = False
         for j in range(n):
             if not computers[i][j]:continue
-            # 현 컴에 연결된 컴 추가
-            curNetwork.append([i,j])
-            computers[i][j] = 0
-            computers[j][i] = 0
+            curNetwork = delNetwork(computers, curNetwork, i, j)
             notIsolation = True
 
         while (True):
-            for l in range(len(curNetwork)):
+            for length in range(len(curNetwork)):
                 nextCom = curNetwork.popleft()
                 for k in range(n):
-                    if not computers[nextCom[1]][k]:continue
-                    curNetwork.append([nextCom[1],k])
-                    computers[nextCom[1]][k] = 0
-                    computers[k][nextCom[1]] = 0
+                    if not computers[nextCom][k]:continue
+                    curNetwork = delNetwork(computers, curNetwork, nextCom, k)
+
             if not curNetwork:
                 break
         
