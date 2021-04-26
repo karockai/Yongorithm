@@ -59,9 +59,6 @@ def solution(operations):
     
     for operation in operations:
         op = list(map(str,operation.split()))
-        print('--------op:', op)
-        print('max:', maxHeap)
-        print('min:', minHeap)
         if (op[0] == 'I'):
             insert(maxHeap, minHeap, int(op[1]))
         elif (op[0] == 'D'):
