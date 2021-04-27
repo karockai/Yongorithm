@@ -5,16 +5,13 @@ prices = [1, 2, 3, 2, 3]
 def solution(prices):
     from collections import deque 
 
-    answer = deque()
+    answer = deque([0])
     time = 0
-    stack = []
-    stack.append([prices[-1], 0])
-    answer.append(0)
+    stack = [[prices[-1], 0]]
 
     for i in range(len(prices)-2, -1, -1):
         time += 1
 
-        # 스택을 덜어내는 경우
         while (stack and prices[i] <= stack[-1][0]):
             stack.pop()
 

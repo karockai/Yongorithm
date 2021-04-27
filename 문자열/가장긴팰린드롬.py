@@ -10,13 +10,14 @@ def oddSearch(letters, idx):
     length = 1
     lp = idx
     rp = idx
-    lChk = True
-    rChk = True
+
     while (0 < lp and rp < len(letters) - 1):
         lp -= 1
         rp += 1
+
         if (letters[lp] != letters[rp]):
             return length
+
         length += 2
     return length
 
@@ -29,18 +30,23 @@ def evenSearch(letters, idx):
 
     if (letters[lp] != letters[rp]):
         return length
+
     length += 1
+
     while (0 < lp and rp < len(letters) - 1):
         lp -= 1
         rp += 1
+
         if (letters[lp] != letters[rp]):
             return length
+
         length += 2
     return length
 
 def solution(s):
     letters = list(s)
     length = 1
+    
     for i in range(0, len(letters)-1):
         length = max(length, oddSearch(letters, i), evenSearch(letters, i))
 

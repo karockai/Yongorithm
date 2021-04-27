@@ -28,6 +28,9 @@ a = [item[:] for item in list_a]
 
 read = sys.stdin.readline
 
+# 무한
+float("inf")
+
 
 arr = list(range(10))
 print(*arr)
@@ -62,3 +65,8 @@ def rotate(arr) : # return array 회전한 배열의 결과
         for j in range(M) :
             tmpArr[j][M-i-1] = arr[i][j];
     return tmpArr
+
+# 리스트를 하나의 문자열로 합치기
+l = ['d', 'a', 't', 'a']
+print(''.join(l)) #data
+print('_'.join(l)) #d_a_t_a
