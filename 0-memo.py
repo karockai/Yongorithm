@@ -1,6 +1,8 @@
 import sys
 import heapq
 from collections import deque 
+import itertools
+
 sys.stdin = open("input.txt","r")
 
 
