@@ -24,14 +24,14 @@ void merge(int array[], int start, int mid, int end)
         sortedPtr++;
     }
 
-    while (leftPtr != mid)
+    while (leftPtr < mid)
     {
         sorted[sortedPtr] = array[leftPtr];
         sortedPtr++;
         leftPtr++;
     }
 
-    while (rightPtr != end)
+    while (rightPtr < end)
     {
         sorted[sortedPtr] = array[rightPtr];
         sortedPtr++;
