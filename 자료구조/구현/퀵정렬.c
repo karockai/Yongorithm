@@ -1,5 +1,4 @@
 # include <stdio.h>
-# include <stdbool.h>
 
 void quickSort(int arr[], int start, int end)
 {
