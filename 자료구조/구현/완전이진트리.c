@@ -51,7 +51,7 @@ _Node* insertNode(_Root* treeRoot, uint_32t data) {
     _Node *curNode = treeRoot->rootNode;
     for (int i ; i = sizeof(directionArr) / sizeof(bool) ; i++)
     {
-
+        
     }
 }
 
