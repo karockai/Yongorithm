@@ -17,6 +17,7 @@ def getPrimeList(maxNum):
                 array[i * j] = False
                 j += 1
     array[1] = False
+    array[0] = False
     return array
 
 
@@ -30,10 +31,23 @@ def solution(numbers):
     
     # numList = list(map(int, list(str(numbers))))
     import itertools
-    arrays = list(itertools.permutations(numList, len(numList)))
     visited = {}
+    answer = 0
+    for j in range(1, len(numList)+1):
+        arrays = list(itertools.permutations(numList, j))
 
-
+        for array in arrays:
+            aList = list(array)
+            curNum = aList[0]
+            for i in range(1, len(aList)):
+                curNum += aList[i]
+            
+            curNum = int(curNum)
+            if (curNum in visited): continue
+            if (not primeList[curNum]): continue
+            # print(curNum)
+            answer += 1
+            visited[curNum] = True
 
     return answer
 
