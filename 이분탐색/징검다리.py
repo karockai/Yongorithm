@@ -1,23 +1,42 @@
 # https://programmers.co.kr/learn/courses/30/lessons/43236
 
-distance = 25
-rocks = [2, 14, 11, 21, 17]
+distance = 34
+rocks =  [5, 19, 28]
 n = 2
 
-def getDistance(distance, rocks):
-    disList = [rocks[0]]
-    for i in range(1, len(rocks)):
-        disList.append(rocks[i] - rocks[i-1])
-    disList.append(distance - rocks[-1])
-    return disList
-
 def solution(distance, rocks, n):
-    rocks.sort()
-    disList = getDistance(distance, rocks)
-    print(rocks)
-    print(disList)
 
-    answer = 0
-    return answer
+    rocks.sort()
+    rocks.append(distance)
+    # print('rocks:', rocks)
+    low = 0
+    high = distance
+    mid = (low + high) // 2
+
+    while (low <= mid):
+        
+        # print('low:', low, 'mid:', mid, 'high:', high)
+        prev = 0
+        rmCnt = 0
+
+        for i in range(len(rocks)):
+            dis = rocks[i] - prev
+            # print('cur:', rocks[i], 'prev:', prev)
+            if (dis < mid):
+                rmCnt += 1
+            else:
+                prev = rocks[i]
+        
+        # print('prev', prev)
+
+        # print('rn:', rmCnt)
+        # if (rmCnt == n):
+        #     return mid
+        if (rmCnt <= n):
+            low = mid + 1
+        else:
+            high = mid - 1
+        mid = (low + high) // 2
+    return mid
 
 print(solution(distance, rocks, n))
